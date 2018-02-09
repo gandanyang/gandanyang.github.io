@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>悦读 | 写文章</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheet/base.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheet/main.css" />
+</head>
+
+<body>
+    <div>
+        <header>
+            <div class="headerNav clearfix">
+                <a href="#">
+                    <i class="logo"></i>
+                    <span class="Logo2">悦读项目</span>
+                </a>
+                <div class="userInfoRT">
+                    <div class="notLogin">
+                        <a href="#">登录</a>
+                        <a href="#">注册</a>
+                    </div>
+                    <div class="userTopInfo" id="userTopInfo">
+                        <a href="">
+                            <img id="topNavIcon" class="navUserIcon" src="image/person-icon.jpg" alt="">
+                            <span class="userName">涂山苏苏</span>
+                        </a>
+                        <i class="dropDownIcon"> </i>
+                        <div class="dropDownList">
+                            <ul>
+                                <!-- <li id="dropDownTop">
+                                </li> -->
+                                <a href="homePage.html?">
+                                    <li>
+                                        <img src="image/icon_user.png">个人中心
+                                    </li>
+                                </a>
+                                <a href="infoEdit.html">
+                                    <li>
+                                        <img src="image/icon_setting.png">账户设置
+                                    </li>
+                                </a>
+                                <a href="register&login.html">
+                                    <li>
+                                        <img src="image/icon_exit.png">退出登陆
+                                    </li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <a class="write">
+                        <i class="writeEssay"></i>
+                        <span href="">写文章</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="writeEssay-main">
+                <form id="postArticle" method="post">
+                    <label id="uploadMainpic" for="hidenUploader">
+                    <div class="writeEssay-top">
+                        <div class="writeEssay-pic">
+                            <input type="file" id="hidenUploader" class="hidenUploader" name="photo" alt="请上传图片">
+                            <div id="div-img" class="div-img">
+                                <div id="writeEssay" class="essayImg">
+                                    <div class="essayPic"></div>
+                                </div>
+                                <span class="essayPicTip">请上传封面，支持3MB以内的JPG\PNG图片。</span>
+                            </div>
+                        </div>
+                        <div class="clickChgPic none" id="clickChgPic">
+                            <span>更换封面</span>
+                        </div>
+                    </div>
+                </label>
+                    <div class="essayTitle">
+                        <input type="text" id="essayTitleVal" placeholder="请输入标题">
+                    </div>
+                    <div class="esayMain">
+                        <textarea id="essayMain" placeholder="请输入正文"></textarea>
+                        <button type="button" name="submit" class="submit" id="submit">发表</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <div class="copyRight">
+                Copyright © 2017 apis.sh All Rights Reserved | 陕ICP备15013925号-3
+            </div>
+        </footer>
+    </div>
+    <script src="js/writeEssay.js"></script>
+    <script src="js/preview.js"></script>
+    <script src="js/base.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1080 @@
+body {
+    font-family: "PingFangSC-Medium";
+}
+
+header {
+    display: block;
+    background: #7F4A88;
+}
+
+.inputContainer input:focus {
+    color: #fff;
+}
+
+.headerNav {
+    height: 60px;
+    width: 100%;
+    padding: 0;
+    display: block;
+    background: #7F4A88;
+}
+
+.copyRight {
+    font-size: 13px;
+    text-align: center;
+    border-top: 1px solid #7F4A88;
+    padding: 24px 0 14px;
+}
+
+a {
+    color: #fff;
+    cursor: pointer;
+}
+
+a:visited {
+    color: #FFF;
+}
+
+
+/* logo */
+
+.logo {
+    background-image: url("../image/raw_1509504016.png");
+    background-size: 100% 100%;
+    width: 78px;
+    height: 26px;
+    margin: 20px 20px 20px 50px;
+    display: inline-block;
+    padding-left: 50px;
+    line-height: 60px;
+    vertical-align: bottom;
+}
+
+
+/* 悦读 */
+
+.Logo2 {
+    margin: 18px 20px 18px 0;
+    display: inline-block;
+    border-left: 3px solid #fff;
+    width: 112px;
+    padding-left: 17px;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 0;
+    font-style: normal;
+    color: #FFF;
+}
+
+.userInfoRT {
+    position: relative;
+    color: #FFF;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    float: right;
+}
+
+
+/* 登陆时右上角用户信息显示 */
+
+.userTopInfo {
+    position: relative;
+    display: inline-block;
+    /* display: none; */
+    line-height: 60px;
+    width: 171px;
+    height: 60px;
+}
+
+.userTopInfo>a {
+    display: inline-block;
+    height: 36px;
+    line-height: 60px;
+    margin: 12px 0;
+    vertical-align: center;
+}
+
+.navUserIcon {
+    width: 35px;
+    height: 35px;
+    border-radius: 60%;
+    float: left;
+}
+
+
+/* .userTopInfo {
+    text-align: left;
+} */
+
+.userTopInfo span {
+    display: inline-block;
+    margin-left: 7px;
+    height: 22px;
+    color: #FFFFFF;
+}
+
+.dropDownList {
+    z-index: 999;
+    position: relative;
+    top: -35px;
+    left: 100px;
+    border: 1px solid #F2EEF3;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.10);
+    display: none;
+    width: 80px;
+}
+
+.dropDownList ul {
+    width: 80px;
+    background: #FFF;
+}
+
+.dropDownList li {
+    padding: 0;
+    height: 35px;
+}
+
+.dropDownList li:hover {
+    color: #7F4A88;
+}
+
+.dropDownList a {
+    height: 100%;
+    width: 100%;
+    display: block;
+    line-height: 35px;
+    color: #222629;
+    height: 35px;
+    font-size: 13px;
+}
+
+span {
+    color: #222620;
+}
+
+
+/* #dropDownTop {
+    display: block;
+    height: 10px;
+} */
+
+
+/* 未登录时右上角显示 */
+
+.notLogin {
+    display: none;
+    /* display: inline-block; */
+    margin: 0 36px;
+    line-height: 60px;
+}
+
+.write {
+    color: #fff;
+    height: 22px;
+    line-height: 60px;
+    vertical-align: middle;
+    float: right;
+    margin-right: 39px;
+    margin: 0 39px 0 7px;
+}
+
+.write i {
+    line-height: 22px;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background: url("../image/icon_write.png")
+}
+
+.write span {
+    height: 22px;
+    line-height: 22px;
+}
+
+.notLogin a {
+    margin-left: 25px;
+    display: block;
+    float: right;
+}
+
+
+/********************登陆页面 *******************/
+
+
+/* 主背景图 */
+
+.main-bg {
+    background: url("../image/bg_signin.jpg");
+    position: absolute -150px -107px;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.main-login-bg {
+    width: 567px;
+    height: 510px;
+    margin: 225px auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.main-login-bg a {
+    margin: 30px 10px;
+    padding: 10px;
+    border: bottom 1px solid #7F4A88;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.login-title {
+    text-align: center;
+    color: #7F4A88;
+    height: 50px;
+    display: block;
+    padding: 50px 0;
+}
+
+.login-title a {
+    display: inline;
+    padding: 0px 20px 10px 20px;
+    color: #fff;
+    font-size: 22px;
+}
+
+.login-title a.active {
+    color: #7F4A88;
+    border-bottom: 2px solid #7F4A88;
+}
+
+.login-input {
+    display: none;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    width: 410px;
+    margin: 0 80px 0 77px;
+}
+
+.inputContainer input::-webkit-input-placeholder {
+    font-family: "ArialMT";
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}
+
+button {
+    background: #7F4A88;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.quick-login>a {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 18px;
+    font-size: 13px;
+    color: #fff;
+    line-height: 18px;
+    margin: 10px auto;
+}
+
+
+/**********************按钮和输入框************************/
+
+.submit {
+    width: 410px;
+    background: #7F4A88;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    height: 42px;
+}
+
+.infoSetSubmit {
+    background: #7F4A88;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    top: -8px;
+    left: 150px;
+    width: 300px;
+    height: 42px;
+}
+
+.cellPhoneNum {
+    border: 1px solid #7F4A88;
+}
+
+
+/* 男女单选框样式 */
+
+.changeInfoContainer label {
+    float: left;
+    cursor: pointer;
+    padding-left: 20px;
+    line-height: 20px;
+    background: url(../image/icon_unchoose.png) no-repeat;
+    font-size: 14px!important;
+    font-weight: 100;
+    margin-right: 30px;
+}
+
+.changeInfoContainer .checked {
+    background: url(../image/icon_choose.png) no-repeat;
+}
+
+.verfCode {
+    margin: 0 10px 17px 0px;
+    width: 289px;
+    height: 42px;
+}
+
+.getVerfCode {
+    padding: 0 2px;
+    border-radius: 3px;
+    width: 103px;
+    margin: 0;
+    position: relative;
+    top: -8px;
+    height: 42px;
+}
+
+
+/******************input框******************/
+
+.inputCon>.blankBgInput {
+    height: 42px;
+    border-radius: 5px;
+    text-indent: 5px;
+    width: 410px;
+    opacity: 0.1;
+    border: 1px solid #222629;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px;
+}
+
+.inputContainer input {
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    box-shadow: 1px 1px;
+    text-indent: 5px;
+    width: 410px;
+    margin: 0 0 17px 0;
+    background: transparent;
+}
+
+.changeInfoContainer input {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 220px;
+    height: 36px;
+    border-radius: 4px;
+}
+
+.essayTitle>input {
+    width: 895px;
+    height: 43px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.create_user_sex input {
+    display: none;
+}
+
+.chgPwdSbm {
+    border: 1px solid #222629;
+    background: #222629;
+    opacity: 0.1;
+}
+
+.resetPwdSbm {
+    opacity: 0.35;
+    color: #000;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-family: "ArialMT";
+}
+
+
+/********************信息修改 *******************/
+
+.center-main {
+    margin: 0 385PX;
+    padding-top: 64px;
+}
+
+.pageTitle {
+    width: 100%;
+    padding-bottom: 15px;
+    font-size: 16px;
+    color: #222629;
+    border-bottom: 1px solid #A580AB;
+    padding-bottom: 15px;
+}
+
+.update-main {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.05);
+    height: 389px;
+    border-radius: 15px;
+    background: #FFF;
+    margin: 27px auto 357px;
+    padding: 39px 0 47.7px 62px;
+}
+
+.changeInfoContainer {
+    margin-bottom: 25px;
+    padding: 0;
+}
+
+.changeInfoContainer>span {
+    display: inline-block;
+    color: #222629;
+    font-size: 14px;
+    line-height: 20px;
+    width: 45px;
+    height: 20px;
+    text-decoration: none;
+    font-weight: 400;
+    margin-right: 17px;
+}
+
+.changeInfoContainer input:focus {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.changeInfoContainer select {
+    width: 220px;
+    padding: 10px 0 10px 10px;
+    font-size: 14px;
+    color: #222629;
+    border: 1px solid #D3D4D4;
+    border-radius: 4px;
+    overflow: visible;
+}
+
+.create_user_sex {
+    display: inline-block;
+}
+
+.hidenUploader {
+    position: absolute;
+    top: -999px;
+}
+
+#fileImg {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+#localImage {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    margin: 0;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.preview {
+    opacity: 0.75;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+
+/**************密码修改******************/
+
+.pageTitle>span {
+    width: 67px;
+    height: 20px;
+    font-size: 14px;
+    color: #222629;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-left: 4px;
+}
+
+.changePwdMain {
+    width: 567px;
+    height: 440px;
+    background: #FFFFFF;
+    border: 1px solid #F2EEF3;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    margin: 27px auto 357px;
+    padding: 0 0 47.7px;
+    vertical-align: center;
+}
+
+.changePwdTitle>span {
+    display: block;
+    padding: 50px 236px 33px;
+    font-size: 22px;
+    color: #7F4A88;
+    letter-spacing: 0;
+}
+
+.inputCon {
+    display: flex;
+    align-items: center;
+    width: 410px;
+    margin: 0 auto 0 auto;
+    margin-bottom: 17px;
+}
+
+
+/********找回密码*******************************/
+
+.resetPwd-title>span {
+    width: 94px;
+    height: 30px;
+    display: block;
+    padding: 44px 236px 34px;
+    font-size: 22px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+
+/****************  写文章***************************/
+
+.div-img {
+    height: 287px;
+    ;
+}
+
+.essayMainPic {
+    width: 998px;
+    height: 287px;
+}
+
+.writeEssay-pic {
+    width: 998px;
+    height: 287px;
+    background: rgba(127, 74, 136, 0.65)
+}
+
+.essayImg {
+    display: block;
+    padding: 92px 471px 0 472px;
+    width: 55px;
+    height: 55px;
+}
+
+.essayImg .essayPic {
+    width: 55px;
+    height: 55px;
+    background-image: url("../image/icon_camrea.png");
+}
+
+
+/* 上传/更改图片提示 */
+
+.essayPicTip {
+    width: 292px;
+    height: 20px;
+    font-size: 14px;
+    color: #222629;
+    margin: 10px 340px 110px 366px;
+}
+
+.writeEssay-main {
+    width: 998px;
+    height: 850px;
+    background: #FFFFFF;
+    border: 1px solid #F0E9F1;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+    border-radius: 2px;
+    margin: 57px 200px 117px 242px;
+}
+
+
+/* 文章标题输入 */
+
+.essayTitle {
+    padding: 9px 0 9px 0;
+    border-bottom: 1px solid #BFA4C3;
+    margin: 15px 52px 9px 51px;
+}
+
+
+/* 输入主要内容位置 */
+
+.esayMain {
+    margin: 0 52px 43px 51px;
+}
+
+.esayMain>textarea {
+    width: 895px;
+    height: 382px;
+    opacity: 0.5;
+    border: 1px solid #7F4A88;
+}
+
+.writeEssay-top {
+    position: relative;
+}
+
+
+/* 点击更换图片容器 */
+
+.clickChgPic {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    opacity: 0.5;
+    background: #222629;
+    width: 998px;
+    height: 41.8px;
+    margin-top: 245.2px;
+}
+
+.clickChgPic>span {
+    display: inline-block;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin: 10px 465px 10px 467px
+}
+
+
+/************************写文章页面***********************/
+
+
+/* 页面中间主体 */
+
+.essayList-main {
+    margin: 35px 200px 0 0;
+}
+
+
+/* 一条文章显示 */
+
+.essayList-item {
+    margin: 10px 0;
+    width: 998px;
+    height: 241px;
+    border-radius: 2px;
+    background: #FFFFFF;
+    border: 1px solid #F0E9F1;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+}
+
+
+/* 文章主图 */
+
+.essay-pic {
+    height: 241px;
+    width: 396px;
+}
+
+.essaySummary {
+    padding-left: 10px;
+    width: 592px;
+    height: 241px;
+    float: right;
+}
+
+
+/* 文章标题 */
+
+.title {
+    margin: 35px 39px 14px 36px;
+}
+
+.title a {
+    color: #000;
+}
+
+
+/* 文章摘要内容 */
+
+.abstract {
+    text-indent: 2em;
+    font-size: 14px;
+    color: #222629;
+    letter-spacing: 0;
+    line-height: 24px;
+    width: 556px;
+    height: 87px;
+    overflow: hidden;
+    margin: 0 10px 10px 0;
+}
+
+
+/* 文章相关信息 */
+
+.meta {
+    margin-bottom: 10px;
+    height: 36px;
+}
+
+.meta a {
+    color: #000;
+}
+
+
+/* 用户头像/作者头像 */
+
+.author-icon,
+.user-icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 11px;
+    float: left;
+    border-radius: 60%;
+}
+
+.userNameTop {
+    float: left;
+    line-height: 60px;
+    font-size: 14px;
+    color: #222629;
+    position: relative;
+    top: -15px;
+}
+
+.authorName,
+.userName {
+    float: left;
+    line-height: 36px;
+    color: #222629;
+    padding-right: 30px;
+}
+
+
+/* 发表时间 */
+
+.publishTime,
+.commentTime {
+    float: left;
+    line-height: 36px;
+    font-size: 14px;
+    color: #222629;
+    padding-right: 30px;
+    opacity: 0.7;
+}
+
+
+/* 点赞数 */
+
+.commentPCount,
+.praiseCount {
+    height: 36px;
+    line-height: 36px;
+    width: 71px;
+    float: left;
+    display: block;
+}
+
+.commentPCount>i,
+.praiseCount>i {
+    line-height: 36px;
+    background: url("../image/icon_thumb_up.png");
+    width: 15px;
+    height: 16px;
+    opacity: 0.6;
+    display: inline-block;
+}
+
+
+/* 浏览数 */
+
+.visitCount {
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    width: 71px;
+    float: left;
+}
+
+.visitCount>i {
+    line-height: 36px;
+    background: url("../image/icon-visited.png");
+    background-size: 100% 100%;
+    width: 15px;
+    height: 15px;
+    opacity: 0.7;
+    display: inline-block;
+}
+
+.loading {
+    width: 160px;
+    margin: 31px 0 24px 447px;
+}
+
+.loadingIcon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url("../image/icon-loading.gif");
+    background-size: 100% 100%;
+}
+
+.loading>span {
+    display: inline-block;
+    line-height: 34px;
+    width: 64px;
+    height: 22px;
+    font-size: 16px;
+    opacity: 0.4;
+    font-size: 16px;
+    color: #222629;
+}
+
+.pageMainPic img {
+    width: 906px;
+    height: 375px;
+}
+
+
+/************* 个人主页***********************/
+
+.personBanner {
+    background: url("../image/person-icon.jpg");
+    height: 258px;
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.personIcon {
+    width: 105px;
+    position: relative;
+    text-align: center;
+    height: 172px;
+    padding: 69px 45% 67px;
+}
+
+.detailInfo {
+    z-index: 2;
+    display: block;
+}
+
+.detailInfo .personName {
+    display: block;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 0 15px;
+}
+
+.person-icon {
+    position: relative;
+    width: 91px;
+    height: 91px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.sex-icon {
+    top: 130px;
+    left: 737px;
+    position: absolute;
+    left: 50%;
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.personCity,
+.personSign {
+    display: inline-block;
+    font-size: 14px;
+    color: #FFFFFF;
+    vertical-align: center;
+}
+
+.person-essayList {
+    width: 998px;
+    margin: 14px 200px 15px 242px;
+}
+
+.person-title {
+    border-bottom: 1px solid rgba(127, 74, 136, 0.5);
+    height: 43px;
+}
+
+
+/************************文章详情***********************/
+
+.share-wechat {
+    display: none;
+    left: 607px;
+    position: absolute;
+    width: 147px;
+    height: 191px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.20);
+}
+
+.share-wechat>p {
+    margin: 16px 22px 4px 23px;
+    font-size: 14px;
+    color: #222629;
+}
+
+.hoverShare:hover .share-wechat {
+    display: block;
+}
+
+.wechat-share {
+    width: 132px;
+    height: 132px;
+    margin: 0 8px 11px 7px;
+}
+
+.article-main {
+    margin: 40px 246px 0 288px;
+    width: 906px;
+    border-bottom: 1px solid rgba(127, 74, 136, 0.5);
+}
+
+.article-titile {
+    margin: 25px 22px 24px 0;
+    height: 50px;
+}
+
+.hoverShare {
+    cursor: pointer;
+    padding: 18px 46px;
+    display: inline-block;
+    background: #FFFFFF;
+    height: 15px;
+}
+
+.hoverShare>i {
+    width: 13.5px;
+    height: 15px;
+    display: inline-block;
+}
+
+.hoverShare>span {
+    width: 29px;
+    height: 14px;
+    opacity: 0.7;
+    font-size: 14px;
+    color: #7F4A88;
+    letter-spacing: 0;
+    line-height: 14px;
+}
+
+.essayAbstract {
+    text-indent: 2em;
+    margin: 16px 0;
+    line-height: 24px;
+}
+
+.essayBody {
+    line-height: 24px;
+    text-indent: 2em;
+    margin-bottom: 44px;
+}
+
+.essayComment {
+    width: 908px;
+    margin: 0 246px 16px 287px;
+}
+
+.essayComment>p {
+    margin: 31px 0 28px 0;
+    font-size: 14px;
+    color: #222629;
+    line-height: 20px;
+    height: 20px;
+}
+
+.commentArea {
+    width: 100%;
+    height: 103px;
+}
+
+.commentArea ::-webkit-input-placeholder {
+    opacity: 0.7;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #222629;
+}
+
+.commentSubmit {
+    background: #7F4A88;
+    border-radius: 4px;
+    width: 88px;
+    height: 36px;
+    margin-top: 22px;
+    color: #fff;
+    font-size: 14px;
+    float: right;
+    margin-left: 900px;
+}
+
+.commentList {
+    margin: 0 245px 32px 287px;
+}
+
+.user {
+    height: 36px;
+}
+
+.commentListTitle {
+    font-size: 14px;
+    color: #222629;
+    margin-bottom: 21px;
+}
+
+.commentContent {
+    margin-left: 46px;
+    font-size: 14px;
+    color: #222629;
+    line-height: 17px;
+    display: block
+}
+
+.dropDownIcon {
+    background: url("../image/iconarrowdown.png");
+    color: #FFF;
+    width: 13px;
+    height: 13px;
+    line-height: 60px;
+    position: absolute;
+    top: 27px;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.userTopInfo:hover .dropDownIcon {
+    transform: rotateZ(-180deg);
+    /* background: url("../image/iconarrowdown.png"); */
+}
+
+.userTopInfo:hover .dropDownList {
+    display: block;
+}

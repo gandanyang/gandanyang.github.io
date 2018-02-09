@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheet/base.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheet/main.css" />
+    <title>悦读 | 账户设置</title>
+</head>
+
+<body>
+    <div class="main-blank">
+        <header>
+            <div class="headerNav clearfix">
+                <a href="#">
+                    <i class="logo"></i>
+                    <span class="Logo2">悦读项目</span>
+                </a>
+                <div class="userInfoRT">
+                    <div class="notLogin" id="notLoginNav">
+                        <a href="#">登录</a>
+                        <a href="#">注册</a>
+                    </div>
+                    <div class="userTopInfo" id="userTopInfo">
+                        <a href="">
+                            <img id="topNavIcon" class="navUserIcon" src="image/person-icon.jpg" alt="">
+                            <span class="userName">涂山苏苏</span>
+                        </a>
+                        <i class="dropDownIcon"> </i>
+                        <div class="dropDownList">
+                            <ul>
+                                <!-- <li id="dropDownTop">
+                                </li> -->
+                                <a href="homePage.html">
+                                    <li>
+                                        <img src="image/icon_user.png">个人中心
+                                    </li>
+                                </a>
+                                <a href="infoEdit.html">
+                                    <li>
+                                        <img src="image/icon_setting.png">账户设置
+                                    </li>
+                                </a>
+                                <a href="register&login.html">
+                                    <li>
+                                        <img src="image/icon_exit.png">退出登陆
+                                    </li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <a class="write" href="wirteEssay.html">
+                        <i class="writeEssay"></i>
+                        <span>写文章</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="center-main">
+                <div class="pageTitle">
+                    账户设置
+                </div>
+                <div class="update-main">
+                    <form name="userInfo" action="#" method="post">
+                        <div class="changeInfoContainer">
+                            <span>头像:</span>
+                            <a id="fileImg">
+                                <input type="file" id="fileHiden" class="hidenUploader" name="photo" alt="请上传图片">
+                                <label id="clickUpload" for="fileHiden">
+                                    <div id="localImage" class="localImage">
+                                        <img src="image/1.jpg" id="preview" class="preview" alt="请上传图片">
+                                        上传头像
+                                    </div>
+                                </label>
+
+                            </a>
+                        </div>
+                        <div class="changeInfoContainer"><span>昵称：</span>
+                            <input type="text" id="userName" placeholder="">
+                        </div>
+
+                        <div class="changeInfoContainer"><span>性别:</span>
+                            <div id="user-sex-select" class="create_user_sex">
+                                <input type="radio" class="sex" name="sexSelect" id="man" value="man" checked>
+                                <label id="manSelect" for="man" name="userSex_yes" class="checked" onclick="ifMan()">男</label>
+                                <input type="radio" class="sex" name="sexSelect" id="woman" value="woman">
+                                <label id="womanSelect" for="woman" name="userSex" onclick="ifWoman()">女</label>
+                            </div>
+                        </div>
+                        <div class=" changeInfoContainer">
+                            <span>星座:</span>
+                            <select name="" id="signSelect">
+                        </select>
+                        </div>
+                        <div class="changeInfoContainer">
+                            <span>城市:</span>
+                            <select name=" " id="province">
+                        </select>
+                            <!-- <select name=" ">
+                            <option value="1 ">——请选择——</option>
+                        </select> -->
+                        </div>
+
+                        <div class="changeInfoContainer">
+                            <span>密码:</span>
+                            <input type="password" name="password" id="password">
+                        </div>
+                        <div class="changeInfoContainer">
+                            <button type="button" class="infoSetSubmit " id="submit">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="copyRight ">
+                Copyright © 2017 apis.sh All Rights Reserved | 陕ICP备15013925号-3
+            </div>
+        </footer>
+    </div>
+    <script>
+        // var prolist = new Array();
+        // proList = ["陕西省 ", "四川省 "];
+        // var cityList = new Array();
+        // cityList[0] = ["西安市 ", "咸阳市 ", "宝鸡市 "];
+        // cityList[1] = ["成都市 ", "绵阳市 ", "德阳市 "];
+        // var countyList = new Array();
+        // // countyList[0][0] = ["碑林区 "];
+        // // countyList[0][1] = ["乾县 "];
+        // // countyList[0][2] = ["宝鸡市某区 "];
+        // // countyList[1][0] = ["成都市某区 "];
+        // // countyList[1][1] = ["绵阳市某区 "];
+        // // countyList[1][2] = ["德阳市某区 "];
+
+        // function loadOptions(index) {
+        //     // 判断为哪一级
+        //     var index;
+        //     if (this.id == "pro ") {
+        //         var array = proList;
+        //         var newOption;
+        //         for (var i; i <= proList.length; i++) {
+        //             newOption = new Option(proList[i]);
+        //             document.userInfo.slecProvince.options.add(option);
+        //         }
+        //         index = i;
+        //     } else if (this.id == "city ") {
+        //         var array = cityList;
+        //     } else if (this.id == "county ") {
+        //         var array = countyList;
+        //     }
+
+
+
+        // }
+
+        // function changeCity() {
+        //     var provIndex = document.userInfo.slecProvince.selecedindex;
+        //     var newOption1;
+        //     for (var j in cityList[pIndex]) {
+        //         newOption1 = new Option(cityList[pIndex][j], cityList[pIndex][j]);
+        //         document.userInfo.selCity.options.add(newOption1);
+        //     }
+
+        // }
+    </script>
+    <script src="js/base.js "></script>
+    <script src="js/infoUpdate.js "></script>
+    <script src="js/preview.js "></script>
+</body>
+
+</html>
