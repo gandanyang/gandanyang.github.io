@@ -87,7 +87,7 @@ window.onload = function() {
                         this.parentNode.removeChild(document.getElementById("area"));
                     }
                     cityIndex = cityNode.options[cityNode.selectedIndex].value;
-
+                    var areaNode = document.getElementById("area")
                     console.log(cityIndex);
                     var str = '<select id="area" class="form-control">'
                     ajaxXHR('GET', url + "city/area?CityID=" + cityIndex, function(data) {
@@ -150,10 +150,11 @@ window.onload = function() {
                     localStorage.avatar = data.data.user.avatar;
                     localStorage.gander = data.data.user.gander;
                     localStorage.name = data.data.user.name;
-                    localStorage.constellation = data.data.constellations;
+                    localStorage.constellation = data.data.constellation;
+                    var cityNode = document.getElementById("city");
                     localStorage.cityname = cityNode.options[cityNode.selectedIndex].text;
                     if (data.code == "SUCCESS") {
-                        window.location.href = "passageList.html";
+                        window.location.href = "index.html";
                     } else {
                         console.log(data);
                     }

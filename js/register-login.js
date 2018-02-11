@@ -26,7 +26,9 @@ function transToReg() {
 }
 
 var cache;
-
+if (tp = "log") {
+    transToLog()
+}
 
 document.getElementById("getRegVerfCode").onclick = function() {
     var mobile = document.getElementById("regCellPhoneNum");

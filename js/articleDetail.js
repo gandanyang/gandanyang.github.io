@@ -15,11 +15,9 @@ window.onload = function() {
         document.getElementsByClassName("publishTime")[0].innerHTML = moment(dataa.create_time).format('YYYY-MM-DD HH:mm:ss');
         document.getElementsByClassName("praisecount")[0].innerHTML = dataa.praise_sum;
         document.getElementsByClassName("visitcount")[0].innerHTML = dataa.look_sum;
-        document.getElementsByName("essayAbstract")[0].innerHTML = abstract;
-
+        document.getElementsByClassName("essayAbstract")[0].innerHTML = localStorage.abstract;
         console.log(dataa.pic);
         document.getElementsByClassName("titile")[0].innerHTML = dataa.title;
-        document.getElementsByClassName("essayAbstract")[0].innerHTML = dataa.abstract;
         document.getElementsByClassName("essayBody")[0].innerHTML = dataa.body;
     })
     ajaxXHR("GET", url + "comment/list?page=1&limit=3&article=" + id, function(data) {
