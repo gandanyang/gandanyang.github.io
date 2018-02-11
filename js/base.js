@@ -54,7 +54,7 @@ function postXHR(type, url, cb, params) {
     xhr.open(type, url);
     xhr.withCredentials = true;
     // if (type == "formdata") {
-    xhr.setRequestHeader("Content-Type", "multipart/form-data");
+    // xhr.setRequestHeader("Content-Type", "multipart/form-data");
     // }
     // xhr.responseType="json";
     xhr.send(params);

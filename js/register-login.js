@@ -54,14 +54,14 @@ document.getElementById("getRegVerfCode").onclick = function() {
     }
 }
 document.getElementById("regSubmit").onclick = function() {
-    var mobile = document.getElementById("regCellPhoneNum");
+    var mobile = document.getElementById("cellPhoneNum").value;
     var phone = mobile.value;
     var pwd1 = document.getElementById("passwordReg").value;
     var pwd2 = document.getElementById("password2Reg").value;
     var authcode = document.getElementById("verfRegCode").value;
     if (pwd1 != pwd2) {
         alert("两次密码输入不一致！")
-    } else if (!(/^(\w){6,30}$/.test(phone))) {
+    } else if (!(/^(\w){6,30}$/.test(pwd1))) {
         // 密码正则判断  
         // 
         alert("请输入6-30个字母、数字或下划线!")
@@ -76,7 +76,7 @@ document.getElementById("regSubmit").onclick = function() {
                 localStorage.avatar = data.data.user.avatar;
                 localStorage.name = data.data.user.name;
                 localStorage.pwd = pwd1;
-                window.location.href = 'passagelist.html';
+                window.location.href = 'index.html';
             } else if (data.code == "param_incomplete") {
                 console.log(data.message);
             } else if (data.code == "phone_format_error") {
@@ -98,7 +98,7 @@ document.getElementById("logSubmit").onclick = function() {
             alert('请输入密码！')
             document.getElementById("passwordLog").focus();
             return false;
-        } else if (!(/^1[3|4|5|7|8]\d{9}$/.test(phone))) {
+        } else if (!(/^1[3|4|5|7|8]\d{9}$/.test(pwd))) {
             alert("不是完整的11位手机号或者正确的手机号前七位");
             mobile.focus();
             return false;
@@ -115,7 +115,7 @@ document.getElementById("logSubmit").onclick = function() {
                     localStorage.id = data.data.user.id;
                     localStorage.constellations = data.data.user.constellations;
                     localStorage.background = data.data.user.background;
-                    window.location.href = 'passagelist.html';
+                    window.location.href = 'index.html';
                 } else if (data.code == "param_incomplete") {
                     console.log(data.message);
                 } else if (data.code == "account_password_error") {

@@ -17,7 +17,6 @@ function uploadPicPreview(filename, contentId, classname) {
             var srcpath = e.target.result;
             showPreviewImage(srcpath);
             imgReader = file;;
-
         };
         filereader.readAsDataURL(file);
 

@@ -1,24 +1,24 @@
 window.onload = function() {
-    ifLoged();
-    window.addEventListener('scroll', _.throttle(lazyLoad(), 100));
-    window.addEventListener('scroll', _.throttle(checkImg, 100));
-    // ifLoged();
-    //通过本地数据加载header 用户相关信息
-    // document.getElementsByClassName("person-icon")[0].src = url_file + localStorage.avatar;
-    document.getElementsByClassName("sex-icon")[0].src = (localStorage.gander = "man") ? "image/icon_boy.png" : (localStorage.gander = "woman") ? ("image/icon_girl.png") : ("image/loadfail.jpg");
-    document.getElementsByClassName("personName")[0].innerHTML = localStorage.name;
-    document.getElementsByClassName("personCity")[0].innerHTML = localStorage.cityname;
-    document.getElementsByClassName("personSign")[0].innerHTML = localStorage.constellation;
-    // window.addEventListener('scroll', _.throttle(checkImg, 1000));
-    loadArticle(1);
-}
-
+        ifLoged();
+        window.addEventListener('scroll', _.throttle(lazyLoad(), 100));
+        window.addEventListener('scroll', _.throttle(checkImg, 100));
+        // ifLoged();
+        //通过本地数据加载header 用户相关信息
+        // document.getElementsByClassName("person-icon")[0].src = url_file + localStorage.avatar;
+        document.getElementsByClassName("sex-icon")[0].src = (localStorage.gander = "man") ? "image/icon_boy.png" : (localStorage.gander = "woman") ? ("image/icon_girl.png") : ("image/loadfail.jpg");
+        document.getElementsByClassName("personName")[0].innerHTML = localStorage.name;
+        document.getElementsByClassName("personCity")[0].innerHTML = localStorage.cityname;
+        document.getElementsByClassName("personSign")[0].innerHTML = localStorage.constellation;
+        // window.addEventListener('scroll', _.throttle(checkImg, 1000));
+        loadArticle(1);
+    }
+    /**
+     * 图片懒加载
+     */
 function lazyLoad() {
     if (pageIndex === undefined) {
-        var pageIndex = 1;
+        var pageIndex = 2;
     }
-
-    var timestamp = (new Date()).valueOf();
     var loading = document.getElementById("loading");
     // console.log(loading.getBoundingClientRect().top);
     // console.log(loading.offsetHeight);
@@ -123,30 +123,31 @@ function loadArticle(pageIndex) {
     var essayData = data.data.articles;
     var essay = "";
     for (var i = 0; i < essayData.length; i++) {
+        const e = essayData[i];
         essay += '<div class="essayList-item">';
-        essay += '<a class="openArticle" data-id="' + essayData[i]._id + '" href="articleDetail.html">';
+        essay += '<a class="openArticle" data-id="' + e._id + '" href="articleDetail.html">';
         // preloadImages
         loadpath = "image/loading.gif";
         realpath = "image/success.jpg";
-        // realpath = url_file + essayData[i].cover;
+        // realpath = url_file + e.cover;
         essay += '<img class="essay-pic cover" data-src="' + realpath + '" src="' + loadpath + '">';
-        essay += '</a><div class = "essaySummary"><div class="title"><a class="openArticle" data-id="' + essayData[i]._id + '" href="articleDetail.html" ><p class="font18">';
-        essay += essayData[i].title + '</p> </a></div>';
-        essay += '<p class="abstract">' + essayData[i].abstract + '</p>';
+        essay += '</a><div class = "essaySummary"><div class="title"><a class="openArticle" data-id="' + e._id + '" href="articleDetail.html" ><p class="font18">';
+        essay += e.title + '</p> </a></div>';
+        essay += '<p class="abstract">' + e.abstract + '</p>';
         //使用本地图片以节约资源
         preavatar = "image/3.jpg";
-        avatarpath = url_file + essayData[i].author.avatar;
-        essay += '<div class ="meta"><div class ="author">   ' + '<img class = "author-icon" src ="' + preavatar + '">';
-        essay += '<p class="authorName">' + essayData[i].author.name + '</p>';
+        avatarpath = url_file + e.author.avatar;
+        essay += '<div class ="meta"><a  class ="author" href="homepage.html" data-_id="' + e.author._id + '>   ' + '<img class = "author-icon" src ="' + preavatar + '">';
+        essay += '<p class="authorName">' + e.author.name + '</p>';
         // moment.js 格式化时间戳
-        essay += '<p class="publishTime">' + moment(essayData[i].create_time).format('YYYY-MM-DD HH:mm:ss') + '</p>'
-        essay += '</div> <span class = "praiseCount" > <i> </i>' + essayData[i].praise_sum + '</span>';
-        essay += '<span class="visitCount"><i> </i>' + essayData[i].look_sum + '</span></div></div></div>';
-        essayCount++;
+        essay += '<p class="publishTime">' + moment(e.create_time).format('YYYY-MM-DD HH:mm:ss') + '</p>'
+        essay += '</a> <span class = "praiseCount" > <i> </i>' + e.praise_sum + '</span>';
+        essay += '<span class="visitCount"><i> </i>' + e.look_sum + '</span></div></div></div>';
     }
     document.getElementById("loading").insertAdjacentHTML('beforebegin', essay);
     document.getElementById("essayCount").innerHTML = "(" + data.count + ")";
     checkImg();
+    listenDetailHref();
     // ajaxXHR('GET', url + "posts/list?page=" + pageIndex + "&limit=3&user=" + pageuserid, function(data) {
     //     console.log(data);
     //     if (data.code != "SUCCESS" || data.data.articles.length == 0) {
@@ -157,30 +158,32 @@ function loadArticle(pageIndex) {
     //     var essay = "";
     //     for (let i = 0; i < essayData.length; i++) {
     //         essay += '<div class="essayList-item">';
-    //         essay += '<a class="openArticle" data-id="' + essayData[i]._id + '" href="articleDetail.html">';
+    //         essay += '<a class="openArticle" data-id="' + e._id + '" href="articleDetail.html">';
     //         // preloadImages
     //         loadpath = "image/icon-loading.gif";
-    //         realpath = url_file + essayData[i].cover;
+    //         realpath = url_file + e.cover;
     //         essay += '<img class="essay-pic cover" data-src="' + realpath + '" src="' + loadpath + '">';
-    //         essay += '</a><div class = "essaySummary"><div class="title"><a class="openArticle" data-id="' + essayData[i]._id + '" href="articleDetail.html" >';
-    //         essay += essayData[i].title + '</a></div>';
-    //         essay += '<p class="abstract">' + essayData[i].abstract + '</p>';
+    //         essay += '</a><div class = "essaySummary"><div class="title"><a class="openArticle" data-id="' + e._id + '" href="articleDetail.html" >';
+    //         essay += e.title + '</a></div>';
+    //         essay += '<p class="abstract">' + e.abstract + '</p>';
     //         //使用本地图片以节约资源
     //         preavatar = "image/3.jpg";
-    //         avatarpath = url_file + essayData[i].author.avatar;
+    //         avatarpath = url_file + e.author.avatar;
     //         essay += '<div class ="meta"><div class ="author">   ' + '<img class = "author-icon" src ="' + preavatar + '">';
-    //         essay += '<p class="authorName">' + essayData[i].author.name + '</p>';
+    //         essay += '<p class="authorName">' + e.author.name + '</p>';
     //         // moment.js 格式化时间戳
-    //         essay += '<p class="publishTime">' + moment(essayData[i].create_time).format('YYYY-MM-DD HH:mm:ss') + '</p>'
-    //         essay += '</div> <span class = "praiseCount" > <i> </i>' + essayData[i].praise_sum + '</span>';
-    //         essay += '<span class="visitCount"><i> </i>' + essayData[i].look_sum + '</span></div></div></div>';
-    //         essayCount++;
+    //         essay += '<p class="publishTime">' + moment(e.create_time).format('YYYY-MM-DD HH:mm:ss') + '</p>'
+    //         essay += '</div> <span class = "praiseCount" > <i> </i>' + e.praise_sum + '</span>';
+    //         essay += '<span class="visitCount"><i> </i>' + e.look_sum + '</span></div></div></div>';
+    //         
     //     }
     //     document.getElementsByClassName("essayList-main")[0].insertAdjacentHTML('afterbegin', essay);
     // })
 
 }
-
+/**
+ * 动态监测图片是否抵达视口
+ */
 function checkImg() {
     var imgs = document.getElementsByClassName("cover");
     for (let index = 0; index < imgs.length; index++) {
@@ -192,6 +195,9 @@ function checkImg() {
     }
 };
 
+/**
+ * 预加载图片
+ */
 function preload_images(img) {
     var temp_img = new Image();
     //预加载图片
@@ -205,5 +211,25 @@ function preload_images(img) {
         //加载失败
     temp_img.onerror = function() {
         img.src = "image/loadfail.jpg";
+    }
+}
+/**
+ * 给a需要点击定向跳转的a添加点击事件
+ */
+function listenDetailHref() {
+    var hrefToDetail = document.getElementsByClassName("openArticle");
+    for (let i = 0; i < hrefToDetail.length; i++) {
+        hrefToDetail[i].onclick = function() {
+            localStorage.author_id = hrefToDetail[i].dataset.id;
+            localStorage.abstract = hrefToDetail[i].dataset.abstract;
+        }
+
+    }
+    var hrefToHomepage = document.getElementsByClassName("author");
+    for (let i = 0; i < hrefToHomepage.length; i++) {
+        const e = hrefToHomepage[i];
+        e.onclick = function() {
+            localStorage.page_userid = e.dataset._id;
+        }
     }
 }

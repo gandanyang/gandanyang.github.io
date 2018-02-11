@@ -128,7 +128,7 @@ a:visited {
     width: 80px;
 }
 
-.dropDownList ul {
+.dropDownList>ul {
     width: 80px;
     background: #FFF;
 }
@@ -136,6 +136,12 @@ a:visited {
 .dropDownList li {
     padding: 0;
     height: 35px;
+}
+
+.dropDownList li>img {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
 }
 
 .dropDownList li:hover {
@@ -224,7 +230,7 @@ span {
     border-radius: 15px;
 }
 
-.main-login-bg a {
+.main-login-bg>a {
     margin: 30px 10px;
     padding: 10px;
     border: bottom 1px solid #7F4A88;
@@ -359,7 +365,7 @@ button {
     border-radius: 5px;
     text-indent: 5px;
     width: 410px;
-    opacity: 0.1;
+    opacity: 0.8;
     border: 1px solid #222629;
     border-radius: 5px;
     box-shadow: 1px 1px 1px 1px;
@@ -396,7 +402,7 @@ button {
 .chgPwdSbm {
     border: 1px solid #222629;
     background: #222629;
-    opacity: 0.1;
+    opacity: 0.9;
 }
 
 .resetPwdSbm {
@@ -409,6 +415,10 @@ button {
 
 
 /********************信息修改 *******************/
+
+.toResetPwd {
+    line-height: 60px;
+}
 
 .center-main {
     margin: 0 385PX;
@@ -480,14 +490,13 @@ button {
     height: 50px;
 }
 
-#localImage {
+.localImage {
     width: 50px;
     height: 50px;
     cursor: pointer;
     z-index: 10;
     font-size: 10px;
-    background: rgba(0, 0, 0, 0.35);
-    color: #fff;
+    color: #000;
     margin: 0;
     border-radius: 50%;
     position: absolute;
@@ -497,8 +506,14 @@ button {
     align-items: center;
 }
 
+.nophoto {
+    background: #000 url(../image/3.png);
+    opacity: 0.8;
+}
+
 .preview {
     opacity: 0.75;
+    opacity: 0.85;
     width: 50px;
     height: 50px;
     display: inline-block;
@@ -736,6 +751,16 @@ button {
 
 .meta a {
     color: #000;
+}
+
+.clickgoTop {
+    cursor: pointer;
+    background: url("../image/icon_backtop.png");
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 
 

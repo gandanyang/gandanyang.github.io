@@ -1,8 +1,11 @@
 window.onload = function() {
-        // ifLoged();
+        if (localStorage.token == undefined) {
+            alert("登陆已失效，请重新登陆！");
+            window.location.href = "register&login.html";
+        }
         document.getElementById("clickUpload").onclick = function() {
-            document.getElementById("preview").style.display = "none";
             uploadPicPreview("fileHiden", "localImage", "preview");
+            document.getElementById("localImage").classList.remove("nophoto");
         }
         var proIndex;
         var disIndex;
