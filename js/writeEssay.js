@@ -30,11 +30,10 @@
  document.getElementById("logout").onclick = function confirmLogout() {
      var msg = "您真的确定要退出登陆吗？\n\n请确认！";
      if (confirm(msg) == true) {
-         return true;
+         localStorage.removeItem("token");
+         window.location.href = "register&login.html";
      } else {
          return false;
      }
-     if (del()) {
-         localStorage.removeItem(token);
-     }
+
  }

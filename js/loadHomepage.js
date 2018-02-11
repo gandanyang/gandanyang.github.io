@@ -11,6 +11,16 @@ window.onload = function() {
         document.getElementsByClassName("personSign")[0].innerHTML = localStorage.constellation;
         // window.addEventListener('scroll', _.throttle(checkImg, 1000));
         loadArticle(1);
+
+        document.getElementById("logout").onclick = function confirmLogout() {
+            var msg = "您真的确定要退出登陆吗？\n\n请确认！";
+            if (confirm(msg) == true) {
+                localStorage.removeItem("token");
+                window.location.href = "register&login.html";
+            } else {
+                return false;
+            }
+        }
     }
     /**
      * 图片懒加载
