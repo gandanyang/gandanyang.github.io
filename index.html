@@ -1,30 +1,82 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
+<html lang="en">
 
-    <body>
-        <!--这是我们的View-->
-        <div id="app">
-            {{ message }}
-        </div>
-    </body>
-    <script src="js/vue.js"></script>
-    <script>
-        // 这是我们的Model
-        // var exampleData = {
-        //     message: 'Hello World!'
-        // }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheet/base.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheet/main.css" />
+    <title>悦读 | 文章列表</title>
+</head>
 
-        // 创建一个 Vue 实例或 "ViewModel"
-        // 它连接 View 与 Model
-        new Vue({
-            el: '#app',
-              data: {
-                message: '菜鸟教程!'
-              }
-        })
-    </script>
+<body>
+    <div class="main-blank">
+        <header>
+            <div class="headerNav clearfix">
+                <a href="#">
+                    <i class="logo"></i>
+                    <span class="Logo2">悦读项目</span>
+                </a>
+                <div class="userInfoRT">
+                    <div class="notLogin" id="notLoginNav">
+                        <a class="font16" href="#">登录</a>
+                        <a class="font16" href="#">注册</a>
+                    </div>
+                    <div class="userTopInfo" id="userTopInfo">
+                        <a href="">
+                            <img id="topNavIcon" class="navUserIcon" src="image/person-icon.jpg" alt="">
+                            <span class="userName">涂山苏苏</span>
+                        </a>
+                        <i class="dropDownIcon"> </i>
+                        <div class="dropDownList">
+                            <ul>
+                                <!-- <li id="dropDownTop">
+                                </li> -->
+                                <a href="homePage.html">
+                                    <li>
+                                        <img src="image/icon_user.png">个人中心
+                                    </li>
+                                </a>
+                                <a href="infoEdit.html">
+                                    <li>
+                                        <img src="image/icon_setting.png">账户设置
+                                    </li>
+                                </a>
+                                <a href="register&login.html">
+                                    <li>
+                                        <img src="image/icon_exit.png">退出登陆
+                                    </li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <a class="write" href="wirteEssay.html">
+                        <i class="writeEssay"></i>
+                        <span>写文章</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="person-essayList">
+                <div class="essayList-main">
+                    <div class="loading" id="loading">
+                        <i class="loadingIcon"> </i>
+                        <span>正在加载</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="copyRight">
+                Copyright © 2017 apis.sh All Rights Reserved | 陕ICP备15013925号-3
+            </div>
+        </footer>
+        <script src="https://cdn.bootcss.com/lodash.js/4.17.5/lodash.js"></script>
+        <script src="https://cdn.bootcss.com/moment.js/2.20.1/moment.js"></script>
+        <script src="js/base.js"></script>
+        <script src="js/loadPassage.js"></script>
+    </div>
+</body>
+
 </html>
