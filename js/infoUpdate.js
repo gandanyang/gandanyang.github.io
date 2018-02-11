@@ -3,6 +3,7 @@ window.onload = function() {
             alert("登陆已失效，请重新登陆！");
             window.location.href = "register&login.html";
         }
+        ifLoged();
         document.getElementById("clickUpload").onclick = function() {
             uploadPicPreview("fileHiden", "localImage", "preview");
             document.getElementById("localImage").classList.remove("nophoto");
