@@ -64,8 +64,8 @@ function postXHR(type, url, cb, params) {
  * 判断用户是否登陆
  */
 function ifLoged() {
-    var userIcon = document.getElementById("userIcon");
-    var username = document.getElementById("userName");
+    // var userIcon = document.getElementById("userIcon");
+    var username = document.getElementsByClassName("userName")[0];
     //已登陆
     if (localStorage.token != undefined) {
         document.getElementById("notLoginNav").style.display = "none";
