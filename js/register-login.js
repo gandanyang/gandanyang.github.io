@@ -26,8 +26,10 @@ function transToReg() {
 }
 
 var cache;
-if (tp = "log") {
-    transToLog()
+if (tp == "log") {
+    transToLog();
+} else {
+    transToReg();
 }
 
 document.getElementById("getRegVerfCode").onclick = function() {

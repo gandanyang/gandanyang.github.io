@@ -1,10 +1,11 @@
 window.onload = function() {
+        clickGotoTop()
         ifLoged();
         window.addEventListener('scroll', _.throttle(lazyLoad(), 100));
         window.addEventListener('scroll', _.throttle(checkImg, 100));
         // ifLoged();
         //通过本地数据加载header 用户相关信息
-        // document.getElementsByClassName("person-icon")[0].src = url_file + localStorage.avatar;
+        document.getElementsByClassName("person-icon")[0].src = url_file + localStorage.avatar;
         document.getElementsByClassName("sex-icon")[0].src = (localStorage.gander = "man") ? "image/icon_boy.png" : (localStorage.gander = "woman") ? ("image/icon_girl.png") : ("image/loadfail.jpg");
         document.getElementsByClassName("personName")[0].innerHTML = localStorage.name;
         document.getElementsByClassName("personCity")[0].innerHTML = localStorage.cityname;
@@ -130,65 +131,67 @@ function loadArticle(pageIndex) {
         },
         "count": 232
     }
-    var essayData = data.data.articles;
-    var essay = "";
-    for (var i = 0; i < essayData.length; i++) {
-        const e = essayData[i];
-        essay += '<div class="essayList-item">';
-        essay += '<a class="openArticle" data-id="' + e._id + '" href="articleDetail.html">';
-        // preloadImages
-        loadpath = "image/loading.gif";
-        realpath = "image/success.jpg";
-        // realpath = url_file + e.cover;
-        essay += '<img class="essay-pic cover" data-src="' + realpath + '" src="' + loadpath + '">';
-        essay += '</a><div class = "essaySummary"><div class="title"><a class="openArticle" data-id="' + e._id + '" href="articleDetail.html" ><p class="font18">';
-        essay += e.title + '</p> </a></div>';
-        essay += '<p class="abstract">' + e.abstract + '</p>';
-        //使用本地图片以节约资源
-        preavatar = "image/3.jpg";
-        avatarpath = url_file + e.author.avatar;
-        essay += '<div class ="meta"><a  class ="author" href="homepage.html" data-_id="' + e.author._id + '>   ' + '<img class = "author-icon" src ="' + preavatar + '">';
-        essay += '<p class="authorName">' + e.author.name + '</p>';
-        // moment.js 格式化时间戳
-        essay += '<p class="publishTime">' + moment(e.create_time).format('YYYY-MM-DD HH:mm:ss') + '</p>'
-        essay += '</a> <span class = "praiseCount" > <i> </i>' + e.praise_sum + '</span>';
-        essay += '<span class="visitCount"><i> </i>' + e.look_sum + '</span></div></div></div>';
-    }
-    document.getElementById("loading").insertAdjacentHTML('beforebegin', essay);
-    document.getElementById("essayCount").innerHTML = "(" + data.count + ")";
-    checkImg();
-    listenDetailHref();
+    var pageuserid = localStorage.author_id;
     // ajaxXHR('GET', url + "posts/list?page=" + pageIndex + "&limit=3&user=" + pageuserid, function(data) {
-    //     console.log(data);
-    //     if (data.code != "SUCCESS" || data.data.articles.length == 0) {
-    //         document.getElementById("loading").innerHTML = "<strong>没有更多文章！</strong>"
-    //         return false;
-    //     }
-    //     var essayData = data.data.articles;
-    //     var essay = "";
-    //     for (let i = 0; i < essayData.length; i++) {
-    //         essay += '<div class="essayList-item">';
-    //         essay += '<a class="openArticle" data-id="' + e._id + '" href="articleDetail.html">';
-    //         // preloadImages
-    //         loadpath = "image/icon-loading.gif";
-    //         realpath = url_file + e.cover;
-    //         essay += '<img class="essay-pic cover" data-src="' + realpath + '" src="' + loadpath + '">';
-    //         essay += '</a><div class = "essaySummary"><div class="title"><a class="openArticle" data-id="' + e._id + '" href="articleDetail.html" >';
-    //         essay += e.title + '</a></div>';
-    //         essay += '<p class="abstract">' + e.abstract + '</p>';
-    //         //使用本地图片以节约资源
-    //         preavatar = "image/3.jpg";
-    //         avatarpath = url_file + e.author.avatar;
-    //         essay += '<div class ="meta"><div class ="author">   ' + '<img class = "author-icon" src ="' + preavatar + '">';
-    //         essay += '<p class="authorName">' + e.author.name + '</p>';
-    //         // moment.js 格式化时间戳
-    //         essay += '<p class="publishTime">' + moment(e.create_time).format('YYYY-MM-DD HH:mm:ss') + '</p>'
-    //         essay += '</div> <span class = "praiseCount" > <i> </i>' + e.praise_sum + '</span>';
-    //         essay += '<span class="visitCount"><i> </i>' + e.look_sum + '</span></div></div></div>';
-    //         
-    //     }
-    //     document.getElementsByClassName("essayList-main")[0].insertAdjacentHTML('afterbegin', essay);
-    // })
+            var essayData = data.data.articles;
+            var essay = "";
+            for (var i = 0; i < essayData.length; i++) {
+                const e = essayData[i];
+                essay += '<div class="essayList-item">';
+                essay += '<a class="openArticle"  href="articleDetail.html?id='+e._id +'">';
+                // preloadImages
+                loadpath = "image/loading.gif";
+                realpath = "image/success.jpg";
+                // realpath = url_file + e.cover;
+                essay += '<img class="essay-pic cover" data-src="' + realpath + '" src="' + loadpath + '">';
+                essay += '</a><div class = "essaySummary"><div class="title"><a class="openArticle" data-id="' + e._id + '" href="articleDetail.html" ><p class="font18">';
+                essay += e.title + '</p></a></div>';
+                essay += '<p class="abstract">' + e.abstract + '</p>';
+                //使用本地图片以节约资源
+                preavatar = "image/3.jpg";
+                avatarpath = url_file + e.author.avatar;
+                essay += '<div class ="meta"><a  class ="author" href="homepage.html" data-_id="' + e.author._id + '>   ' + '<img class = "author-icon" src ="' + avatarpath + '">';
+                essay += '<p class="authorName">' + e.author.name + '</p>';
+                // moment.js 格式化时间戳
+                essay += '<p class="publishTime">' + moment(e.create_time).format('YYYY-MM-DD HH:mm:ss') + '</p>'
+                essay += '</a> <span class = "praiseCount" > <i> </i>' + e.praise_sum + '</span>';
+                essay += '<span class="visitCount"><i> </i>' + e.look_sum + '</span></div></div></div>';
+            }
+            document.getElementById("loading").insertAdjacentHTML('beforebegin', essay);
+            document.getElementById("essayCount").innerHTML = "(" + data.count + ")";
+            checkImg();
+            listenDetailHref();
+        // })
+        //     console.log(data);
+        //     if (data.code != "SUCCESS" || data.data.articles.length == 0) {
+        //         document.getElementById("loading").innerHTML = "<strong>没有更多文章！</strong>"
+        //         return false;
+        //     }
+        //     var essayData = data.data.articles;
+        //     var essay = "";
+        //     for (let i = 0; i < essayData.length; i++) {
+        //         essay += '<div class="essayList-item">';
+        //         essay += '<a class="openArticle" data-id="' + e._id + '" href="articleDetail.html">';
+        //         // preloadImages
+        //         loadpath = "image/icon-loading.gif";
+        //         realpath = url_file + e.cover;
+        //         essay += '<img class="essay-pic cover" data-src="' + realpath + '" src="' + loadpath + '">';
+        //         essay += '</a><div class = "essaySummary"><div class="title"><a class="openArticle" data-id="' + e._id + '" href="articleDetail.html" >';
+        //         essay += e.title + '</a></div>';
+        //         essay += '<p class="abstract">' + e.abstract + '</p>';
+        //         //使用本地图片以节约资源
+        //         preavatar = "image/3.jpg";
+        //         avatarpath = url_file + e.author.avatar;
+        //         essay += '<div class ="meta"><div class ="author">   ' + '<img class = "author-icon" src ="' + preavatar + '">';
+        //         essay += '<p class="authorName">' + e.author.name + '</p>';
+        //         // moment.js 格式化时间戳
+        //         essay += '<p class="publishTime">' + moment(e.create_time).format('YYYY-MM-DD HH:mm:ss') + '</p>'
+        //         essay += '</div> <span class = "praiseCount" > <i> </i>' + e.praise_sum + '</span>';
+        //         essay += '<span class="visitCount"><i> </i>' + e.look_sum + '</span></div></div></div>';
+        //         
+        //     }
+        //     document.getElementsByClassName("essayList-main")[0].insertAdjacentHTML('afterbegin', essay);
+        // })
 
 }
 /**
@@ -239,7 +242,45 @@ function listenDetailHref() {
     for (let i = 0; i < hrefToHomepage.length; i++) {
         const e = hrefToHomepage[i];
         e.onclick = function() {
-            localStorage.page_userid = e.dataset._id;
+            localStorage.author_id = e.dataset._id;
         }
     }
+}
+
+function clickGotoTop() {
+    /**
+     * 自动跳转至页首
+     */
+    var clickToTop = document.getElementsByClassName("clickgoTop")[0];
+    var clientHeight = document.documentElement.clientHeight;
+    var timer = null;
+    var isTop = true;
+    //根据高度判断是否隐藏按钮
+    window.onscroll = function() {
+        /**
+         * //获取页面卷起高度
+         */
+        var overtop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (overtop >= clientHeight) {
+            clickToTop.style.visibility = "visible";
+        } else {
+            clickToTop.style.visibility = "hidden";
+        };
+        if (!isTop) {
+            clearInterval(timer);
+        }
+        isTop = false;
+    }
+    clickToTop.onclick = function() {
+        timer = setInterval(function() {
+            var overtop = document.documentElement.scrollTop || document.body.scrollTop;
+            var speed = Math.floor(-overtop / 7);
+            document.documentElement.scrollTop = document.body.scrollTop = overtop + speed;
+            if (overtop == 0) {
+                clearInterval(timer);
+            }
+            isTop = true;
+        }, 30)
+    }
+
 }
